@@ -1,0 +1,82 @@
+/* styles.css — custom extras */
+
+/* ===== Image preview ===== */
+img.preview {
+  max-width: 100%;
+  margin-top: 8px;
+  border-radius: 8px;
+  box-shadow: 0 6px 14px rgba(147, 51, 234, 0.25);
+  border: 2px solid rgba(147, 51, 234, 0.2);
+}
+
+/* ===== Background overrides ===== */
+.bg-purple-50 {
+  background-color: #f5f3ff; 
+}
+
+.bg-purple-100 {
+  background-color: #ede9fe; 
+}
+
+/* ===== Gradient buttons ===== */
+.btn-gradient {
+  font-weight: 600;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Login button - purple gradient */
+#loginTab, #loginBtn {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: white;
+}
+#loginTab:hover, #loginBtn:hover {
+  background: linear-gradient(135deg, #6b21a8, #9333ea);
+  transform: translateY(-2px);
+}
+
+/* Register button - pink/orange gradient */
+#registerTab, #registerBtn {
+  background: linear-gradient(135deg, #f43f5e, #fb7185);
+  color: white;
+}
+#registerTab:hover, #registerBtn:hover {
+  background: linear-gradient(135deg, #e11d48, #f472b6);
+  transform: translateY(-2px);
+}
+
+/* ===== Toast notifications ===== */
+.toast {
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  color: white;
+  font-weight: 600;
+  min-width: 200px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideIn 0.3s forwards, fadeOut 0.3s 3s forwards;
+}
+
+.toast-success { background: #22c55e; }  /* green */
+.toast-error   { background: #ef4444; }  /* red */
+.toast-info    { background: #3b82f6; }  /* blue */
+
+@keyframes slideIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateY(-20px); }
+}
+
+/* ===== Utility classes ===== */
+.hidden { display: none; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.space-y-3 > * + * { margin-top: 0.75rem; }
+.space-y-4 > * + * { margin-top: 1rem; }
+.space-y-6 > * + * { margin-top: 1.5rem; }

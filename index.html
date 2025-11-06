@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NoProxy — Smart Attendance </title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-purple-100 min-h-screen flex items-center justify-center p-6">
+  <div class="max-w-3xl w-full mx-auto bg-purple-50 p-8 rounded-2xl shadow-xl space-y-6">
+    <h1 class="text-3xl font-bold text-center text-purple-800">NoProxy — Smart Attendance</h1>
+
+    <!-- AUTH SECTION -->
+    <div id="auth" class="space-y-4">
+      <!-- Tabs -->
+      <div class="flex justify-center space-x-4">
+        <button id="loginTab" class="btn-gradient">Login</button>
+        <button id="registerTab" class="btn-gradient bg-purple-200 text-purple-800 hover:bg-purple-300">Register</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <div id="loginForm" class="space-y-3">
+        <h2 class="text-xl font-semibold text-purple-700">Login</h2>
+        <div class="flex flex-wrap gap-3">
+          <select id="loginRole" class="border p-2 rounded w-36">
+            <option value="faculty">Faculty</option>
+            <option value="student">Student</option>
+          </select>
+          <input id="loginEmail" type="email" placeholder="Enter Gmail" class="border p-2 rounded flex-1" />
+          <input id="loginPassword" type="password" placeholder="Password" class="border p-2 rounded w-48" />
+          <button id="loginBtn" class="btn-gradient">Login</button>
+        </div>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div id="registerForm" class="hidden space-y-3">
+        <h2 class="text-xl font-semibold text-purple-700">Register</h2>
+        <div class="flex flex-wrap gap-3">
+          <select id="registerRole" class="border p-2 rounded w-36">
+            <option value="faculty">Faculty</option>
+            <option value="student">Student</option>
+          </select>
+          <input id="registerId" type="text" placeholder="ID" class="border p-2 rounded w-48" />
+          <input id="registerName" type="text" placeholder="Name" class="border p-2 rounded flex-1" />
+          <input id="registerEmail" type="email" placeholder="Enter Gmail" class="border p-2 rounded flex-1" />
+          <input id="registerPassword" type="password" placeholder="Password" class="border p-2 rounded w-48" />
+          <input id="studentPhoto" type="file" accept="image/*" class="border p-2 rounded w-full hidden" />
+          <button id="registerBtn" class="btn-gradient">Register</button>
+        </div>
+      </div>
+
+      <div class="text-xs text-gray-600 text-center mt-2">.</div>
+    </div>
+
+    <!-- FACULTY DASHBOARD -->
+    <div id="facultyPage" class="hidden space-y-4">
+      <div class="flex justify-between items-center">
+        <h2 class="font-semibold text-purple-800">Faculty Dashboard</h2>
+        <button id="logoutBtn1" class="btn-gradient bg-red-500 hover:bg-red-600">Logout</button>
+      </div>
+
+      <h3 class="font-semibold mb-2">Upload Classroom Image</h3>
+      <div class="flex flex-wrap gap-3">
+        <input id="imageInput" type="file" accept="image/*" class="border p-2 rounded" />
+        <input id="sessionInput" placeholder="Session (optional)" class="border p-2 rounded flex-1"/>
+        <button id="uploadBtn" class="btn-gradient bg-green-600 hover:bg-green-700">Process Image</button>
+      </div>
+
+      <div id="preview" class="mt-3"></div>
+      <div id="result" class="mt-4 p-3 bg-purple-100 rounded"></div>
+
+      <div class="mt-4">
+        <h3 class="font-semibold">Export Report</h3>
+        <div class="flex gap-2 flex-wrap mt-2">
+          <input id="dateInput" type="date" class="border p-2 rounded" />
+          <select id="formatSelect" class="border p-2 rounded">
+            <option value="csv">CSV</option>
+            <option value="excel">Excel (CSV in demo)</option>
+          </select>
+          <button id="exportBtn" class="btn-gradient bg-indigo-600 hover:bg-indigo-700">Export</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STUDENT DASHBOARD -->
+    <div id="studentPage" class="hidden space-y-4">
+      <div class="flex justify-between items-center">
+        <h2 class="font-semibold text-purple-800">Student Dashboard</h2>
+        <button id="logoutBtn2" class="btn-gradient bg-red-500 hover:bg-red-600">Logout</button>
+      </div>
+      <div id="studentInfo" class="text-sm text-green-600"></div>
+      <div id="studentAttendance" class="mt-3 p-3 bg-purple-100 rounded"></div>
+    </div>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toastContainer" class="fixed top-5 right-5 flex flex-col gap-2 z-50"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
